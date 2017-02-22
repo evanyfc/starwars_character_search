@@ -42,7 +42,7 @@
       </div>
       <div ng-if="characters">
         <div ng-controller='CharacterController'>
-          <p class = "result_count"> {{(characters.results|filter: filter_gender : true).length}} Results </p>
+          <p class = "result_count"> {{(characters.results|filter: (filter_gender? filter_gender: undefined) : true).length}} Results </p>
           <div class = "gender_selection">
             Gender: <select name="select_gender" ng-model="filter_gender">
             <option value="">Filter by gender</option>
@@ -51,7 +51,7 @@
             </select>
           </div>
           <div id = "results">
-            <div class = "results" ng-repeat="character in characters.results | filter: filter_gender : true">
+            <div class = "results" ng-repeat="character in characters.results |filter: (filter_gender? filter_gender: undefined) : true">
                 <h4>{{character.name}}</h4>
                 <p>{{character.gender}} - {{character.hair_color}} hair - {{character.eye_color}} eyes</p>
             </div>
