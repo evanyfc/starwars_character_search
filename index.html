@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp" ng-controller="CharacterController">
+  <head>
+    <meta charset="utf-8">
+    <title>Star Wars Character Search</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="bower_components/angular/angular.js"></script>
+    <script type="text/javascript">
+      var myAppModule = angular.module('myApp', []);
+      myAppModule.controller('CharacterController', function($scope, $http){
+        $scope.NewSearch = function(){
+          $http.get("https://swapi.co/api/people/?search=" + $scope.search)
+          .then(function(response){
+            $scope.characters = response.data;
+            console.log($scope.characters)
+          })
+        }
+      });
+    </script>
+  </head>
+  <body>
+    <div id = "wrapper">
+      <div id = "search">
+        <form>
+          <input id="searchinput" type='text' placeholder='Search by character name' ng-model='search'>
+          <input class="button" type='submit' value='search' ng-click='NewSearch()'>
+        </form>
+      </div>
+      <div ng-if="!characters">
+        <p class = "result_count"> 0 Results </p>
+        <div class = "gender_selection">
+          Gender: <select name="select_gender" ng-model="filter_gender">
+          <option value="">Filter by gender</option>
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+          </select>
+        </div>
+        <div id = "no_results">
+          <img src = "css/vader-icon.svg" alt="darth vader helmet">
+          <h3>Search by character name</h3>
+        </div>
+      </div>
+      <div ng-if="characters">
+        <div ng-controller='CharacterController'>
+          <p class = "result_count"> {{(characters.results|filter: filter_gender : true).length}} Results </p>
+          <div class = "gender_selection">
+            Gender: <select name="select_gender" ng-model="filter_gender">
+            <option value="">Filter by gender</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            </select>
+          </div>
+          <div id = "results">
+            <div class = "results" ng-repeat="character in characters.results | filter: filter_gender : true">
+                <h4>{{character.name}}</h4>
+                <p>{{character.gender}} - {{character.hair_color}} hair - {{character.eye_color}} eyes</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

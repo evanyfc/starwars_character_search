@@ -1,0 +1,98 @@
+*{
+  margin: 0px;
+  padding: 0px;
+  font-family: 'Montserrat regular';
+}
+
+#wrapper{
+  background-color: rgba(211, 211, 211, 0.14);
+  height: auto;
+  width: 900px;
+  padding: 10%;
+}
+
+@font-face {
+  font-family: 'Montserrat regular';
+  src: url("Montserrat-Regular.ttf");
+}
+
+#search {
+  margin-left: 20%;
+  margin-right: 20%;
+  margin-top: -4%;
+  margin-bottom: 40px;
+  background-color: white;
+  box-shadow: 0px 5px 5px 0px grey;
+}
+
+input[type="text"] {
+  margin: 20px;
+  height: 40px;
+  width: 400px;
+  background-color: rgba(211, 211, 211, 0.14);
+}
+
+.button {
+  border-radius: 4px;
+  height: 40px;
+  width: 80px;
+  background-color: #03A9F4;
+  color: white;
+}
+
+.result_count {
+  display: inline;
+  margin-left: 8%;
+
+}
+
+.gender_selection {
+  display: inline;
+  margin-left: 40%;
+}
+
+#no_results {
+  margin-left: 7%;
+  margin-right: 7%;
+  margin-top: 40px;
+  padding: 20px;
+  background-color: white;
+  box-shadow: 0px 5px 5px 0px grey;
+}
+
+#no_results img {
+  margin-left: 45%;
+  margin-right: 45%;
+  margin-top: 50px;
+}
+
+#no_results h3 {
+  text-align: center;
+
+}
+
+#results {
+  margin-left: 7%;
+  margin-right: 7%;
+  margin-top: 40px;
+  padding: 20px;
+  background-color: white;
+  box-shadow: 0px 5px 5px 0px grey;
+}
+
+.results {
+  margin: 20px;
+}
+
+.results h4 {
+  color: black;
+}
+
+.results p {
+  color: grey;
+}
+
+
+.results p {
+  color: grey;
+}
