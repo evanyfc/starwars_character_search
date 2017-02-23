@@ -28,37 +28,45 @@
     <div id = "wrapper">
       <div id = "search">
         <form>
-          <input id="searchinput" type='text' placeholder='Search by character name' ng-model='search'>
-          <input class="button" type='submit' value='search' ng-click='NewSearch()'>
+          <input id="searchinput" type='text' onfocus="if(this.placeholder == 'Search by character name') { this.placeholder = ''; }" placeholder="Search by character name" ng-model='search'>
+          <input class="button" type='submit' value='Search' ng-click='NewSearch()'>
         </form>
       </div>
       <div ng-if="!characters">
-        <p class = "result_count"> 0 Results </p>
-        <div class = "gender_selection">
-          Gender: <select name="select_gender" ng-model="filter_gender">
-          <option value="">Filter by gender</option>
-          <option value="male">Male</option>
-          <option value="female">Female</option>
-          </select>
+        <p class = "result_count"> 0 RESULTS </p>
+        <div class = "gender_div">
+          <p class = "gender"> GENDER </p>
+          <div class = "gender_selection">
+            <select name="select_gender" ng-model="filter_gender">
+              <option value="">Filter by gender</option>
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+            </select>
+          </div>
         </div>
         <div id = "no_results">
-          <img src = "css/vader-icon.svg" alt="darth vader helmet">
+          <img src = "css/graphics/vader-icon.svg" alt="darth vader helmet">
           <h3>Search by character name</h3>
         </div>
       </div>
       <div ng-if="characters">
         <div ng-controller='CharacterController'>
-          <p class = "result_count"> {{(characters.results|filter: (filter_gender? filter_gender: undefined) : true).length}} Results </p>
-          <div class = "gender_selection">
-            Gender: <select name="select_gender" ng-model="filter_gender">
-            <option value="">Filter by gender</option>
-            <option ng-repeat="(key, val) in gender" value= {{key}}> {{key}} ({{val}}) </option>
-            </select>
+          <p class = "result_count"> {{(characters.results|filter: (filter_gender? filter_gender: undefined) : true).length}} RESULTS </p>
+          <div class = "gender_div">
+            <p class = "gender"> GENDER </p>
+            <div class = "gender_selection">
+              <select name="select_gender" ng-model="filter_gender">
+                <option value="">Filter by gender</option>
+                <option ng-repeat="(key, val) in gender" value= {{key}}> {{key}} ({{val}}) </option>
+              </select>
+            </div>
           </div>
           <div id = "results">
             <div class = "results" ng-repeat="character in characters.results |filter: (filter_gender? filter_gender: undefined) : true">
                 <h4>{{character.name}}</h4>
                 <p>{{character.gender}} - {{character.hair_color}} hair - {{character.eye_color}} eyes</p>
+                <div class = "line">
+                </div>
             </div>
           </div>
         </div>
