@@ -63,7 +63,7 @@ input[type="text"] {
 
 .gender_selection {
   display: inline;
-  margin-left: 40%;
+  margin-left: 500px;
 }
 
 #no_results {
@@ -83,7 +83,7 @@ input[type="text"] {
 
 #no_results h3 {
   text-align: center;
-
+  margin-bottom: 50px;
 }
 
 #results {
@@ -102,11 +102,6 @@ input[type="text"] {
 .results h4 {
   color: black;
 }
-
-.results p {
-  color: grey;
-}
-
 
 .results p {
   color: grey;
