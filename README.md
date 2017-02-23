@@ -12,4 +12,4 @@ Goal is allow the user to:
 Known issues:
 
 * ~~Need to allow gender filter go back to "all"~~
-* Show number of results for each gender in the select dropdown
+* ~~Show number of results for each gender in the select dropdown~~

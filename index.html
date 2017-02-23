@@ -12,7 +12,13 @@
           $http.get("https://swapi.co/api/people/?search=" + $scope.search)
           .then(function(response){
             $scope.characters = response.data;
-            console.log($scope.characters)
+            $scope.gender = {};
+            $scope.characters.results.forEach(item => {
+				      if(!$scope.gender[item.gender])
+					      $scope.gender[item.gender] = 1
+				      else
+					      $scope.gender[item.gender] += 1
+			      })
           })
         }
       });
@@ -46,8 +52,7 @@
           <div class = "gender_selection">
             Gender: <select name="select_gender" ng-model="filter_gender">
             <option value="">Filter by gender</option>
-            <option value="male">Male</option>
-            <option value="female">Female</option>
+            <option ng-repeat="(key, val) in gender" value= {{key}}> {{key}} ({{val}}) </option>
             </select>
           </div>
           <div id = "results">
