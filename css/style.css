@@ -9,7 +9,6 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 
 #wrapper {
     background-color: #F7F8FA;
-    background-repeat: no-repeat;
     height: auto;
     width: 780px;
     border: 1px solid white;
@@ -115,8 +114,8 @@ input[type="text"] {
 }
 
 #no_results img {
-    margin-left: 45%;
-    margin-right: 45%;
+    margin-left: 225px;
+    margin-right: 225px;
     margin-top: 50px;
 }
 
