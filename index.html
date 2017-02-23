@@ -14,11 +14,11 @@
             $scope.characters = response.data;
             $scope.gender = {};
             $scope.characters.results.forEach(item => {
-				      if(!$scope.gender[item.gender])
-					      $scope.gender[item.gender] = 1
-				      else
-					      $scope.gender[item.gender] += 1
-			      })
+              if(!$scope.gender[item.gender])
+                $scope.gender[item.gender] = 1
+              else
+                $scope.gender[item.gender] += 1
+            })
           })
         }
       });
